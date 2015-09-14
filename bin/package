@@ -1,0 +1,14 @@
+#!/usr/bin/env ruby
+# ================================================
+# PACKAGE ========================================
+# ================================================
+begin
+  require "package"
+rescue LoadError
+  require "rubygems"
+  require "package"
+end
+
+Package.main
+
+

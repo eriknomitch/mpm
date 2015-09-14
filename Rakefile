@@ -17,8 +17,8 @@ Jeweler::Tasks.new do |gem|
   gem.name = "package"
   gem.homepage = "http://github.com/eriknomitch/package"
   gem.license = "MIT"
-  gem.summary = %Q{TODO: one-line summary of your gem}
-  gem.description = %Q{TODO: longer description of your gem}
+  gem.summary = %Q{A CLI wrapper to unify interaction with multiple package managers across various OSs/distributions.}
+  gem.description = %Q{A CLI wrapper to unify interaction with multiple package managers across various OSs/distributions.}
   gem.email = "erik@nomitch.com"
   gem.authors = ["Erik Nomitch"]
   # dependencies defined in Gemfile
