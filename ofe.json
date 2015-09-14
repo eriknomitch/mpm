@@ -1,0 +1,16 @@
+{
+  "default": {
+    "extensions": [".rb", ".gem", "*.gemspec", ".md"],
+    "files":      ["Rakefile", "Gemfile", "bin/*", "ofe.json", ".gitignore"],
+    "first_file": "lib/package.rb"
+  },
+  "docs": {
+    "extensions": [".md"]
+  },
+  "diff": {
+    "command": "git diff --name-only"
+  },
+  "git": {
+    "files": [".git/config", ".gitignore"]
+  }
+}
