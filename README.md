@@ -6,6 +6,20 @@ A CLI wrapper to unify interaction with multiple package managers across various
 
 **This is in EARLY DEVELOPMENT and is HIGHLY EXPERIMENTAL.**
 
+## Usage
+
+```Shell
+
+# Searching
+$ package search <query>
+
+# Installing
+$ package install <package name(s)...>
+
+$ package uninstall <package name(s)...>
+
+```
+
 ## Contributing to package
  
 * Check out the latest master to make sure the feature hasn't been implemented or the bug hasn't been fixed yet.
