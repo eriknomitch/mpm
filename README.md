@@ -6,14 +6,6 @@ A CLI wrapper to unify interaction with multiple package managers across various
 
 **This is in EARLY DEVELOPMENT and is HIGHLY EXPERIMENTAL.**
 
-## Supported Package Managers
-
-### OS X
-* Homebrew (i.e., `brew`)
-
-### Linux
-* Advanced Packaging Tool aka APT (i.e., `apt-get`, `apt-cache`, etc.)
-
 ## Usage
 
 ```Shell
@@ -31,6 +23,14 @@ $ package uninstall <package name(s)...>
 $ package list
 
 ```
+
+## Supported Package Managers
+
+### OS X
+* Homebrew (i.e., `brew`)
+
+### Linux
+* Advanced Packaging Tool aka APT (i.e., `apt-get`, `apt-cache`, etc.)
 
 ## Copyright
 
