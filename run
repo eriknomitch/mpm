@@ -1,1 +1,1 @@
-rake install
+bundle install && rake install

@@ -2,6 +2,12 @@ source "http://rubygems.org"
 # Add dependencies required to use your gem here.
 # Example:
 #   gem "activesupport", ">= 2.3.5"
+#gem "activesupport"
+#gem "recursive-open-struct"
+#gem "pidfile"
+#gem "os"
+gem "thor"
+gem "awesome_print"
 
 # Add dependencies to develop your gem here.
 # Include everything needed to run rake, tests, features, etc.
