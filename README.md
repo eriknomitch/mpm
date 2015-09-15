@@ -6,6 +6,14 @@ A CLI wrapper to unify interaction with multiple package managers across various
 
 **This is in EARLY DEVELOPMENT and is HIGHLY EXPERIMENTAL.**
 
+## Supported Platforms & Package Managers
+
+### OS X
+* Homebrew
+
+### Linux
+* Advanced Packaging Tool (APT)
+
 ## Usage
 
 ```Shell
@@ -16,6 +24,7 @@ $ package search <query>
 # Installing
 $ package install <package name(s)...>
 
+# Uninstalling
 $ package uninstall <package name(s)...>
 
 ```
