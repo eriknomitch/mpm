@@ -1,5 +1,5 @@
 module Package
   def self.main
-    puts "ok"
+    puts "ok test"
   end
 end
