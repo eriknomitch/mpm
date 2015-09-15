@@ -27,13 +27,12 @@ $ package list
 ## Supported Package Managers
 
 ### OS X
-* Homebrew (i.e., `brew`)
+* [Homebrew](http://brew.sh/) (i.e., `brew`)
 
 ### Linux
-* Advanced Packaging Tool aka APT (i.e., `apt-get`, `apt-cache`, etc.)
+* [Advanced Packaging Tool](https://wiki.debian.org/Apt) aka APT (i.e., `apt-get`, `apt-cache`, etc.)
 
 ## Copyright
 
-Copyright (c) 2015 Erik Nomitch. See LICENSE.txt for
-further details.
+Copyright &copy; 2015 Erik Nomitch. See LICENSE.txt for further details.
 
