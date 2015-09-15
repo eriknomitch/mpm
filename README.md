@@ -6,19 +6,19 @@ A CLI wrapper to unify interaction with multiple package managers across various
 
 **This is in EARLY DEVELOPMENT and is HIGHLY EXPERIMENTAL.**
 
-## Supported Platforms & Package Managers
+## Supported Package Managers
 
 ### OS X
-* Homebrew
+* Homebrew (i.e., `brew`)
 
 ### Linux
-* Advanced Packaging Tool (APT)
+* Advanced Packaging Tool aka APT (i.e., `apt-get`, `apt-cache`, etc.)
 
 ## Usage
 
 ```Shell
 
-# Searching
+# Searching (Available Packages)
 $ package search <query>
 
 # Installing
@@ -26,6 +26,9 @@ $ package install <package name(s)...>
 
 # Uninstalling
 $ package uninstall <package name(s)...>
+
+# Listing (Installed Packages)
+$ package list
 
 ```
 
