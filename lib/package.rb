@@ -8,6 +8,11 @@ require "recursive-open-struct"
 require "thor"
 require "thor/group"
 require "awesome_print"
+require "active_support/core_ext/hash/reverse_merge"
+require "active_support/core_ext/module"
+require "active_support/core_ext/object/blank"
+require "active_support/core_ext/object/try"
+require "active_support/inflector/inflections"
 
 # FIX: Development only
 require "pry" if Gem::Specification::find_all_by_name("pry").any?
@@ -16,10 +21,17 @@ require "pry" if Gem::Specification::find_all_by_name("pry").any?
 # MODULE->PACKAGE --------------------------------
 # ------------------------------------------------
 module Package
+
+  # ----------------------------------------------
+  # ----------------------------------------------
+  # ----------------------------------------------
+  class PackageManagerProvisioner
+  end
+  
+  # ----------------------------------------------
+  # ----------------------------------------------
+  # ----------------------------------------------
   def self.main
     puts "ok test"
-  end
-
-  class PMProvisioner
   end
 end
