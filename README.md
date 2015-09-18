@@ -4,6 +4,8 @@ A CLI wrapper to unify interaction with multiple package managers across various
 
 ## Disclaimer
 
+**This currently doesn't do anything yet.**
+
 **This is in EARLY DEVELOPMENT and is HIGHLY EXPERIMENTAL.**
 
 ## Usage
