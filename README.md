@@ -13,16 +13,16 @@ A CLI wrapper to unify interaction with multiple package managers across various
 ```Shell
 
 # Searching (Available Packages)
-$ package search <query>
+$ mpm search <query>
 
 # Installing
-$ package install <package name(s)...>
+$ mpm install <package name(s)...>
 
 # Uninstalling
-$ package uninstall <package name(s)...>
+$ mpm uninstall <package name(s)...>
 
 # Listing (Installed Packages)
-$ package list
+$ mpm list
 
 ```
 

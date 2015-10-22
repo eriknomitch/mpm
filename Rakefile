@@ -21,7 +21,7 @@ Jeweler::Tasks.new do |gem|
   gem.description = %Q{A CLI wrapper to unify interaction with multiple package managers across various OSs/distributions.}
   gem.email = "erik@nomitch.com"
   gem.authors = ["Erik Nomitch"]
-  gem.executables = ["package"]
+  gem.executables = ["mpm"]
   # dependencies defined in Gemfile
 end
 Jeweler::RubygemsDotOrgTasks.new
