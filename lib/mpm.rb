@@ -149,18 +149,20 @@ module MPM
   # DEFINE->PMProvisioners -----------------------
   # ----------------------------------------------
   # FIX: Put these in ./pm_provisioners
+  # FIX: It's not really apt-get since search is apt-cache
   PMProvisioner.define "apt-get", :linux do
     install do |package|
+      #sudo true
       ["install", package]
     end
 
     uninstall do |package|
+      #sudo true
       ["remove", package]
     end
     
     search do |package|
-      #executable "apt-cache"
-
+      #executable "apt-cache" 
       ["search", package]
     end
   end
