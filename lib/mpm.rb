@@ -73,6 +73,7 @@ module MPM
       
       self.definitions_commands = Set.new
 
+      # Evaluate the block/DSL
       self.instance_eval &self.definition
     end
 
@@ -80,8 +81,11 @@ module MPM
     # DSL ----------------------------------------
     # --------------------------------------------
     [:install, :uninstall, :search].each do |name|
-      define_method name
-        self.definitions_commands.add [method_name, &definition]
+      define_method name do
+        self.definitions_commands.add({
+          method_name: name,
+          definition:  definition
+        })
       end
     end
     
