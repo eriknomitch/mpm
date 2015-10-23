@@ -13,6 +13,10 @@ The concept of `mpm` is to create a (meta) package manager syntax/wrapper for th
 # Searching (Searches Available Packages)
 $ mpm search <query>
 
+# For example:
+#  * If you were on Debian, this would execute: apt-cache search <query>
+#  * If you were on OS X, this would execute:   brew search <query>
+
 # Installing
 $ mpm install <package name(s)...>
 
