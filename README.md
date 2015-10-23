@@ -2,7 +2,7 @@
 
 A CLI wrapper to unify interaction with multiple package managers across various OSs/distributions.
 
-**_DISCLAIMER_: This is in EARLY DEVELOPMENT and is EXPERIMENTAL.**
+**_Disclaimer_: This is in early development and is experimental.**
 
 ## Usage
 
