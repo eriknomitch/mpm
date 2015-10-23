@@ -149,6 +149,10 @@ module MPM
   # DEFINE->PMProvisioners -----------------------
   # ----------------------------------------------
   # FIX: Put these in ./pm_provisioners
+  
+  # ----------------------------------------------
+  # DEFINE->PM-PROVISIONER->APT ------------------
+  # ----------------------------------------------
   # FIX: It's not really apt-get since search is apt-cache
   PMProvisioner.define "apt-get", :linux do
     install do |package|
@@ -166,7 +170,10 @@ module MPM
       ["search", package]
     end
   end
-  
+
+  # ----------------------------------------------
+  # DEFINE->PM-PROVISIONER->BREW -----------------
+  # ----------------------------------------------
   PMProvisioner.define "brew", :osx do
     install do |package|
       ["install", package]
