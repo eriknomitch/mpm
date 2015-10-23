@@ -60,12 +60,18 @@ module MPM
       executable
       os
       definition
+      definitions_commands
     )
 
+    # --------------------------------------------
+    # INITIALIZE ---------------------------------
+    # --------------------------------------------
     def initialize(executable, os, &definition)
       self.executable = executable
       self.os         = os
       self.definition = definition
+      
+      self.definitions_commands = Set.new
 
       self.instance_eval &self.definition
     end
@@ -73,13 +79,10 @@ module MPM
     # --------------------------------------------
     # DSL ----------------------------------------
     # --------------------------------------------
-    def install()
-    end
-    
-    def uninstall()
-    end
-    
-    def search()
+    [:install, :uninstall, :search].each do |name|
+      define_method name
+        self.definitions_commands.add [method_name, &definition]
+      end
     end
     
     # --------------------------------------------
