@@ -157,15 +157,15 @@ module MPM
   # ----------------------------------------------
   # FIX: It's not really apt-get since search is apt-cache
   PMProvisioner.define "apt-get", :linux do
-    install do |package|
+    install do |*packages|
       #sudo true
-      ["install", package]
+      ["install", *packages]
     end
 
-    uninstall do |package|
+    uninstall do |*packages|
       #sudo true
       # FIX: What about --purge?
-      ["remove", package]
+      ["remove", *packages]
     end
     
     search do |package|
@@ -187,12 +187,12 @@ module MPM
   # DEFINE->PM-PROVISIONER->BREW -----------------
   # ----------------------------------------------
   PMProvisioner.define "brew", :osx do
-    install do |package|
-      ["install", package]
+    install do |*packages|
+      ["install", *package]
     end
     
-    uninstall do |package|
-      ["uninstall", package]
+    uninstall do |*packages|
+      ["uninstall", *packages]
     end
 
     search do |package|
@@ -211,6 +211,8 @@ module MPM
   # ----------------------------------------------
   # MAIN -----------------------------------------
   # ----------------------------------------------
+
+  # Find and set the main PMProvisioner that this machine will use.
   self.pm_provisioner = ::MPM::PMProvisioner.get()
 
 end

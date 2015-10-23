@@ -26,9 +26,9 @@ module MPM
     # --------------------------------------------
     # COMMAND->INSTALL ---------------------------
     # --------------------------------------------
-    desc "install|--install PACKAGE", "Installs a package."
-    def install(package)
-      ::MPM.pm_provisioner.exec_command :install, package
+    desc "install|--install PACKAGE", "Installs one or more packages."
+    def install(*packages)
+      ::MPM.pm_provisioner.exec_command :install, *packages
     end
 
     map "--install" => "install"
@@ -36,9 +36,9 @@ module MPM
     # --------------------------------------------
     # COMMAND->UNINSTALL -------------------------
     # --------------------------------------------
-    desc "uninstall|--uninstall PACKAGE", "Uninstalls a package."
-    def uninstall(package)
-      ::MPM.pm_provisioner.exec_command :uninstall, package
+    desc "uninstall|--uninstall PACKAGE", "Uninstalls one or more packages."
+    def uninstall(*packages)
+      ::MPM.pm_provisioner.exec_command :uninstall, *packages
     end
 
     map "--uninstall" => "uninstall"
