@@ -24,7 +24,15 @@ require "pry" if Gem::Specification::find_all_by_name("pry").any?
 # ------------------------------------------------
 module MPM
 
-  mattr_accessor :pm_provisioners
+  # ----------------------------------------------
+  # ATTRIBUTES -----------------------------------
+  # ----------------------------------------------
+  # pm_provisioners: The Set of all the defined PackageManagerProvisioners
+  # pm_provisioner:  The currently selected PackageManagerProvisioner for this OS/platform.
+  mattr_accessor *%i(
+    pm_provisioners
+    pm_provisioner
+  )
 
   self.pm_provisioners = Set.new
 
@@ -104,7 +112,12 @@ module MPM
     def exec_command(command_name, *arguments)
       command = find_command command_name
 
-      puts command[:definition].call(*arguments)
+      # TEMPORARY: FIX:
+      executable = ::MPM.pm_provisioner.executable
+      executable = "apt-cache" if executable == "apt-get" and command_name.to_sym == :search
+
+      # Execute the command from the executable and the definition.
+      system [executable].concat(command[:definition].call(*arguments)).join(" ")
     end
     
     # --------------------------------------------
@@ -160,11 +173,13 @@ module MPM
       ["search", package]
     end
   end
-  
-end
 
-#puts ::MPM::PMProvisioner.get().executable
-#puts ::MPM::PMProvisioner.get().os
+  # ----------------------------------------------
+  # MAIN -----------------------------------------
+  # ----------------------------------------------
+  self.pm_provisioner = ::MPM::PMProvisioner.get()
+
+end
 
 # ------------------------------------------------
 # REQUIRE->POST ----------------------------------
