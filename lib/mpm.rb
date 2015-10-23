@@ -53,13 +53,42 @@ module MPM
   # ----------------------------------------------
   class PMProvisioner
 
-    attr_accessor :executable, :os
+    # --------------------------------------------
+    # ATTRIBUTES ---------------------------------
+    # --------------------------------------------
+    attr_accessor *%i(
+      executable
+      os
+      definition
+    )
 
-    def initialize(executable, os)
+    def initialize(executable, os, &definition)
       self.executable = executable
-      self.os = os
+      self.os         = os
+      self.definition = definition
+
+      self.instance_eval &self.definition
     end
 
+    # --------------------------------------------
+    # DSL ----------------------------------------
+    # --------------------------------------------
+    def install()
+    end
+    
+    def uninstall()
+    end
+    
+    def search()
+    end
+    
+    # --------------------------------------------
+    # DEFINE/GET ---------------------------------
+    # --------------------------------------------
+    def self.define(executable, os, &definition)
+      ::MPM.pm_provisioners.add PMProvisioner.new(executable, os, &definition)
+    end
+    
     def self.get
       pm_executable = ::MPM::Utility.get_pm_executable
 
@@ -68,9 +97,6 @@ module MPM
       end
     end
 
-    def self.define(executable, os)
-      ::MPM.pm_provisioners.add PMProvisioner.new(executable, os)
-    end
   end
 
   # ----------------------------------------------
@@ -78,15 +104,39 @@ module MPM
   # ----------------------------------------------
   # FIX: Put these in ./pm_provisioners
   PMProvisioner.define "apt-get", :linux do
+    install do |package|
+      ["install", package]
+    end
+
+    uninstall do |package|
+      ["remove", package]
+    end
+    
+    search do |package|
+      executable "apt-cache"
+
+      ["search", package]
+    end
   end
   
   PMProvisioner.define "brew", :osx do
+    install do |package|
+      ["install", package]
+    end
+    
+    uninstall do |package|
+      ["uninstall", package]
+    end
+
+    search do |package|
+      ["search", package]
+    end
   end
   
 end
 
-puts ::MPM::PMProvisioner.get().executable
-puts ::MPM::PMProvisioner.get().os
+#puts ::MPM::PMProvisioner.get().executable
+#puts ::MPM::PMProvisioner.get().os
 
 # ------------------------------------------------
 # REQUIRE->POST ----------------------------------
