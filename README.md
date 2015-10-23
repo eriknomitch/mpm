@@ -24,11 +24,11 @@ $ mpm list
 
 ## Supported Package Managers
 
-### OS X
-* [Homebrew](http://brew.sh/) (i.e., `brew`)
-
 ### Linux
 * [Advanced Packaging Tool](https://wiki.debian.org/Apt) aka **APT** (i.e., `apt-get`, `apt-cache`, etc.)
+
+### OS X
+* [Homebrew](http://brew.sh/) (i.e., `brew`)
 
 ## Copyright
 
