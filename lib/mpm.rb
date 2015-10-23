@@ -88,7 +88,7 @@ module MPM
     # --------------------------------------------
     # DSL ----------------------------------------
     # --------------------------------------------
-    [:install, :uninstall, :search, :list].each do |name|
+    [:install, :uninstall, :search, :list, :update].each do |name|
       define_method name do |&definition|
         self.definitions_commands.add({
           method_name: name,
@@ -177,6 +177,10 @@ module MPM
       #executable "dpkg"
       ["-l"]
     end
+    
+    update do
+      ["update"]
+    end
   end
 
   # ----------------------------------------------
@@ -197,6 +201,10 @@ module MPM
 
     list do
       ["list"]
+    end
+
+    update do
+      ["update"]
     end
   end
 

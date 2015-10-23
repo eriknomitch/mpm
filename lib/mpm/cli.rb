@@ -54,6 +54,16 @@ module MPM
     map "--list" => "list"
     
     # --------------------------------------------
+    # COMMAND->UPDATE ----------------------------
+    # --------------------------------------------
+    desc "update|--update", "Updates the local package index from remote."
+    def update()
+      ::MPM.pm_provisioner.exec_command :update
+    end
+
+    map "--update" => "update"
+    
+    # --------------------------------------------
     # COMMAND->VERSION ---------------------------
     # --------------------------------------------
     desc "version|--version", "Displays the current version of notify-push"
@@ -63,7 +73,6 @@ module MPM
     end
 
     map "--version" => "version"
-
 
   end
 
