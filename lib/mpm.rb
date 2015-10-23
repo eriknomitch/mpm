@@ -117,7 +117,12 @@ module MPM
       executable = "apt-cache" if executable == "apt-get" and command_name.to_sym == :search
 
       # Execute the command from the executable and the definition.
-      system [executable].concat(command[:definition].call(*arguments)).join(" ")
+      command = [executable].concat(command[:definition].call(*arguments))
+
+      # TEMPORARY: FIX:
+      command.unshift("sudo") if executable == "apt-get"
+
+      system command.join(" ")
     end
     
     # --------------------------------------------
