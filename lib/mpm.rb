@@ -162,6 +162,7 @@ module MPM
 
     uninstall do |package|
       #sudo true
+      # FIX: What about --purge?
       ["remove", package]
     end
     
