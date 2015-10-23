@@ -77,12 +77,16 @@ module MPM
   # DEFINE->PMProvisioners -----------------------
   # ----------------------------------------------
   # FIX: Put these in ./pm_provisioners
-  PMProvisioner.define "apt-get", "Linux" do
+  PMProvisioner.define "apt-get", :linux do
+  end
+  
+  PMProvisioner.define "brew", :osx do
   end
   
 end
 
-binding.pry
+puts ::MPM::PMProvisioner.get().executable
+puts ::MPM::PMProvisioner.get().os
 
 # ------------------------------------------------
 # REQUIRE->POST ----------------------------------
