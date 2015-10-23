@@ -1,4 +1,4 @@
-# package
+# mpm (Meta Package Manager)
 
 A CLI wrapper to unify interaction with multiple package managers across various OSs/distributions.
 
