@@ -18,7 +18,9 @@ module MPM
     # --------------------------------------------
     desc "search|--search PACKAGE", "Searches for a package in the list of available packages."
     def search(package)
-      puts package
+      pm_provisioner = ::MPM::PMProvisioner.get()
+
+      pm_provisioner.exec_command :search, package
     end
 
     map "--search" => "search"
@@ -28,7 +30,7 @@ module MPM
     # --------------------------------------------
     desc "install|--install PACKAGE", "Installs a package."
     def install(package)
-      puts package
+      pm_provisioner.exec_command :install, package
     end
 
     map "--install" => "install"

@@ -81,7 +81,7 @@ module MPM
     # DSL ----------------------------------------
     # --------------------------------------------
     [:install, :uninstall, :search].each do |name|
-      define_method name do
+      define_method name do |&definition|
         self.definitions_commands.add({
           method_name: name,
           definition:  definition
@@ -90,12 +90,33 @@ module MPM
     end
     
     # --------------------------------------------
-    # DEFINE/GET ---------------------------------
+    # COMMAND->RETREIVAL -------------------------
+    # --------------------------------------------
+    def find_command(command_name)
+      self.definitions_commands.find do |definition_command|
+        definition_command[:method_name] == command_name.to_sym
+      end
+    end
+    
+    # --------------------------------------------
+    # COMMAND->EXECUTION -------------------------
+    # --------------------------------------------
+    def exec_command(command_name, *arguments)
+      command = find_command command_name
+
+      puts command[:definition].call(*arguments)
+    end
+    
+    # --------------------------------------------
+    # PM-PROVISIONERS->DEFINITION ----------------
     # --------------------------------------------
     def self.define(executable, os, &definition)
       ::MPM.pm_provisioners.add PMProvisioner.new(executable, os, &definition)
     end
     
+    # --------------------------------------------
+    # PM-PROVISIONERS->RETRIEVAL -----------------
+    # --------------------------------------------
     def self.get
       pm_executable = ::MPM::Utility.get_pm_executable
 
@@ -103,7 +124,7 @@ module MPM
         pm_provisioner.executable == pm_executable
       end
     end
-
+    
   end
 
   # ----------------------------------------------
@@ -120,7 +141,7 @@ module MPM
     end
     
     search do |package|
-      executable "apt-cache"
+      #executable "apt-cache"
 
       ["search", package]
     end
