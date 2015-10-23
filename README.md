@@ -39,6 +39,16 @@ $ mpm update
 ### OS X
 * [Homebrew](http://brew.sh/) (i.e., `brew`)
 
+## Installation
+
+For now:
+
+```Shell
+$ git clone https://github.com/eriknomitch/mpm.git
+$ cd mpm
+$ bundle install
+$ rake install
+```
 ## Copyright
 
 Copyright &copy; 2015 Erik Nomitch. See LICENSE.txt for further details.
