@@ -1,6 +1,6 @@
 # mpm (Meta Package Manager)
 
-A CLI wrapper to unify interaction with multiple package managers across various OSs/distributions.
+*A CLI wrapper to unify interaction with multiple package managers across various OSs/distributions.*
 
 The concept of mpm is to create one (meta) package manager syntax for the numerous package managers that exist to simplify cross-platform administration of them.
 
