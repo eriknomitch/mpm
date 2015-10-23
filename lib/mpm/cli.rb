@@ -44,6 +44,16 @@ module MPM
     map "--uninstall" => "uninstall"
     
     # --------------------------------------------
+    # COMMAND->LIST ------------------------------
+    # --------------------------------------------
+    desc "list|--list", "Lists installed packages."
+    def list()
+      ::MPM.pm_provisioner.exec_command :list
+    end
+
+    map "--list" => "list"
+    
+    # --------------------------------------------
     # COMMAND->VERSION ---------------------------
     # --------------------------------------------
     desc "version|--version", "Displays the current version of notify-push"
