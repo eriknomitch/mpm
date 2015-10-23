@@ -1,4 +1,4 @@
-# package
+# mpm (Meta Package Manager)
 
 A CLI wrapper to unify interaction with multiple package managers across various OSs/distributions.
 
@@ -13,16 +13,16 @@ A CLI wrapper to unify interaction with multiple package managers across various
 ```Shell
 
 # Searching (Available Packages)
-$ package search <query>
+$ mpm search <query>
 
 # Installing
-$ package install <package name(s)...>
+$ mpm install <package name(s)...>
 
 # Uninstalling
-$ package uninstall <package name(s)...>
+$ mpm uninstall <package name(s)...>
 
 # Listing (Installed Packages)
-$ package list
+$ mpm list
 
 ```
 
@@ -32,7 +32,7 @@ $ package list
 * [Homebrew](http://brew.sh/) (i.e., `brew`)
 
 ### Linux
-* [Advanced Packaging Tool](https://wiki.debian.org/Apt) aka APT (i.e., `apt-get`, `apt-cache`, etc.)
+* [Advanced Packaging Tool](https://wiki.debian.org/Apt) aka **APT** (i.e., `apt-get`, `apt-cache`, etc.)
 
 ## Copyright
 

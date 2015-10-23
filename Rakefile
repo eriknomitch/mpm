@@ -14,14 +14,14 @@ require 'rake'
 require 'jeweler'
 Jeweler::Tasks.new do |gem|
   # gem is a Gem::Specification... see http://guides.rubygems.org/specification-reference/ for more options
-  gem.name = "package"
-  gem.homepage = "http://github.com/eriknomitch/package"
+  gem.name = "mpm"
+  gem.homepage = "http://github.com/eriknomitch/mpm"
   gem.license = "MIT"
   gem.summary = %Q{A CLI wrapper to unify interaction with multiple package managers across various OSs/distributions.}
   gem.description = %Q{A CLI wrapper to unify interaction with multiple package managers across various OSs/distributions.}
   gem.email = "erik@nomitch.com"
   gem.authors = ["Erik Nomitch"]
-  gem.executables = ["package"]
+  gem.executables = ["mpm"]
   # dependencies defined in Gemfile
 end
 Jeweler::RubygemsDotOrgTasks.new
@@ -46,7 +46,7 @@ Rake::RDocTask.new do |rdoc|
   version = File.exist?('VERSION') ? File.read('VERSION') : ""
 
   rdoc.rdoc_dir = 'rdoc'
-  rdoc.title = "package #{version}"
+  rdoc.title = "mpm #{version}"
   rdoc.rdoc_files.include('README*')
   rdoc.rdoc_files.include('lib/**/*.rb')
 end
