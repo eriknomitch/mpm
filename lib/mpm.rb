@@ -22,13 +22,39 @@ require "pry" if Gem::Specification::find_all_by_name("pry").any?
 # ------------------------------------------------
 module MPM
 
+  mattr_accessor :pm_provisioners
+
+  self.pm_provisioners = Set.new
+
   # ----------------------------------------------
+  # CLASS->PMProvisioner -------------------------
   # ----------------------------------------------
+  class PMProvisioner
+
+    attr_accessor :executable, :os
+
+    def initialize(executable, os)
+      self.executable = executable
+      self.os = os
+    end
+
+    def self.get
+    end
+
+    def self.define(executable, os)
+      ::MPM.pm_provisioners.add PMProvisioner.new(executable, os)
+    end
+  end
+
   # ----------------------------------------------
-  class PackageManagerProvisioner
+  # DEFINE->PMProvisioners -----------------------
+  # ----------------------------------------------
+  PMProvisioner.define "apt-get", "Linux" do
   end
   
 end
+
+binding.pry
 
 # ------------------------------------------------
 # REQUIRE->POST ----------------------------------
