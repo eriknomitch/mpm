@@ -188,7 +188,7 @@ module MPM
   # ----------------------------------------------
   PMProvisioner.define "brew", :osx do
     install do |*packages|
-      ["install", *package]
+      ["install", *packages]
     end
     
     uninstall do |*packages|
