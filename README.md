@@ -32,7 +32,7 @@ $ mpm list
 * [Homebrew](http://brew.sh/) (i.e., `brew`)
 
 ### Linux
-* [Advanced Packaging Tool](https://wiki.debian.org/Apt) aka APT (i.e., `apt-get`, `apt-cache`, etc.)
+* [Advanced Packaging Tool](https://wiki.debian.org/Apt) aka **APT** (i.e., `apt-get`, `apt-cache`, etc.)
 
 ## Copyright
 
