@@ -13,6 +13,8 @@ require "active_support/core_ext/module"
 require "active_support/core_ext/object/blank"
 require "active_support/core_ext/object/try"
 require "active_support/inflector/inflections"
+#require "os"
+require "os-name"
 
 # FIX: Development only
 require "pry" if Gem::Specification::find_all_by_name("pry").any?
@@ -27,6 +29,26 @@ module MPM
   self.pm_provisioners = Set.new
 
   # ----------------------------------------------
+  # MODULE->UTILITY ------------------------------
+  # ----------------------------------------------
+  module Utility
+    def self.get_os()
+      OS.to_sym
+    end
+
+    def self.get_pm_executable()
+      case get_os
+      when :linux
+        # FIX: Detect distro...
+        "apt-get"
+      when :osx
+        # FIX: Ensure brew, etc.
+        "brew"
+      end
+    end
+  end
+
+  # ----------------------------------------------
   # CLASS->PMProvisioner -------------------------
   # ----------------------------------------------
   class PMProvisioner
@@ -39,6 +61,11 @@ module MPM
     end
 
     def self.get
+      pm_executable = ::MPM::Utility.get_pm_executable
+
+      ::MPM.pm_provisioners.find do |pm_provisioner|
+        pm_provisioner.executable == pm_executable
+      end
     end
 
     def self.define(executable, os)
@@ -49,6 +76,7 @@ module MPM
   # ----------------------------------------------
   # DEFINE->PMProvisioners -----------------------
   # ----------------------------------------------
+  # FIX: Put these in ./pm_provisioners
   PMProvisioner.define "apt-get", "Linux" do
   end
   

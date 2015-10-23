@@ -8,6 +8,8 @@ source "http://rubygems.org"
 gem "activesupport"
 gem "thor"
 gem "awesome_print"
+gem "os"
+gem "os-name"
 
 # Add dependencies to develop your gem here.
 # Include everything needed to run rake, tests, features, etc.
