@@ -16,7 +16,7 @@ module MPM
     # --------------------------------------------
     # COMMAND->SEARCH ----------------------------
     # --------------------------------------------
-    desc "search|--search PACKAGE", "Searches for a package in the list of available packages."
+    desc "search PACKAGE", "Searches for a package in the list of available packages."
     def search(package)
       ::MPM.pm_provisioner.exec_command :search, package
     end
@@ -26,7 +26,8 @@ module MPM
     # --------------------------------------------
     # COMMAND->INSTALL ---------------------------
     # --------------------------------------------
-    desc "install|--install PACKAGE", "Installs one or more packages."
+    # TODO: $ mpm install cask/hazel
+    desc "install PACKAGE", "Installs one or more packages."
     def install(*packages)
       ::MPM.pm_provisioner.exec_command :install, *packages
     end
@@ -36,7 +37,7 @@ module MPM
     # --------------------------------------------
     # COMMAND->UNINSTALL -------------------------
     # --------------------------------------------
-    desc "uninstall|--uninstall PACKAGE", "Uninstalls one or more packages."
+    desc "uninstall PACKAGE", "Uninstalls one or more packages."
     def uninstall(*packages)
       ::MPM.pm_provisioner.exec_command :uninstall, *packages
     end
@@ -46,7 +47,7 @@ module MPM
     # --------------------------------------------
     # COMMAND->LIST ------------------------------
     # --------------------------------------------
-    desc "list|--list", "Lists installed packages."
+    desc "list", "Lists installed packages."
     def list()
       ::MPM.pm_provisioner.exec_command :list
     end
@@ -56,7 +57,7 @@ module MPM
     # --------------------------------------------
     # COMMAND->UPDATE ----------------------------
     # --------------------------------------------
-    desc "update|--update", "Updates the local package index from remote."
+    desc "update", "Updates the local package index from remote."
     def update()
       ::MPM.pm_provisioner.exec_command :update
     end
@@ -66,7 +67,7 @@ module MPM
     # --------------------------------------------
     # COMMAND->INFO ------------------------------
     # --------------------------------------------
-    desc "info|--info PACKAGE", "Displays information about a package."
+    desc "info PACKAGE", "Displays information about a package."
     def info(package)
       ::MPM.pm_provisioner.exec_command :info, package
     end
@@ -76,7 +77,7 @@ module MPM
     # --------------------------------------------
     # COMMAND->VERSION ---------------------------
     # --------------------------------------------
-    desc "version|--version", "Displays the current version of notify-push"
+    desc "version", "Displays the current version of notify-push"
     def version()
       puts "FIX"
       #puts ::MPM::VERSION
