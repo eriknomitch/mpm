@@ -88,7 +88,7 @@ module MPM
     # --------------------------------------------
     # DSL ----------------------------------------
     # --------------------------------------------
-    [:install, :uninstall, :search, :list, :update].each do |name|
+    [:install, :uninstall, :search, :list, :update, :info].each do |name|
       define_method name do |&definition|
         self.definitions_commands.add({
           method_name: name,
@@ -115,7 +115,7 @@ module MPM
       executable = ::MPM.pm_provisioner.executable
       
       # TEMPORARY: FIX:
-      executable = "apt-cache" if executable == "apt-get" and command_name.to_sym == :search
+      executable = "apt-cache" if executable == "apt-get" and [:search, :info].member? command_name.to_sym
       executable = "dpkg" if executable == "apt-get" and command_name.to_sym == :list
 
       # Execute the command from the executable and the definition.
@@ -181,6 +181,11 @@ module MPM
     update do
       ["update"]
     end
+    
+    info do |package|
+      #executable cpt-cache
+      ["show", package]
+    end
   end
 
   # ----------------------------------------------
@@ -205,6 +210,10 @@ module MPM
 
     update do
       ["update"]
+    end
+    
+    info do |package|
+      ["info", package]
     end
   end
 

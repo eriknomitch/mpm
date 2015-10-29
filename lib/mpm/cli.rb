@@ -64,6 +64,16 @@ module MPM
     map "--update" => "update"
     
     # --------------------------------------------
+    # COMMAND->INFO ------------------------------
+    # --------------------------------------------
+    desc "info|--info PACKAGE", "Displays information about a package."
+    def info(package)
+      ::MPM.pm_provisioner.exec_command :info, package
+    end
+
+    map "--info" => "info"
+    
+    # --------------------------------------------
     # COMMAND->VERSION ---------------------------
     # --------------------------------------------
     desc "version|--version", "Displays the current version of notify-push"
