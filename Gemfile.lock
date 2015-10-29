@@ -77,13 +77,16 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  activesupport
-  awesome_print
+  activesupport (>= 4.2)
+  awesome_print (>= 1.6)
   bundler (~> 1.0)
   jeweler (~> 2.0.1)
-  os
-  os-name
+  os (>= 0.9)
+  os-name (>= 0.0)
   rdoc (~> 3.12)
   shoulda
   simplecov
-  thor
+  thor (>= 0.19)
+
+BUNDLED WITH
+   1.10.6

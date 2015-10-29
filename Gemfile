@@ -5,11 +5,11 @@ source "http://rubygems.org"
 #gem "recursive-open-struct"
 #gem "pidfile"
 #gem "os"
-gem "activesupport"
-gem "thor"
-gem "awesome_print"
-gem "os"
-gem "os-name"
+gem "activesupport", ">= 4.2"
+gem "thor", ">= 0.19"
+gem "awesome_print", ">= 1.6"
+gem "os", ">= 0.9"
+gem "os-name", ">= 0.0"
 
 # Add dependencies to develop your gem here.
 # Include everything needed to run rake, tests, features, etc.
