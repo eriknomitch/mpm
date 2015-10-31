@@ -55,6 +55,16 @@ module MPM
     map "--list" => "list"
     
     # --------------------------------------------
+    # COMMAND->INSTALLED -------------------------
+    # --------------------------------------------
+    desc "installed", "Searches installed packages."
+    def installed()
+      #::MPM.pm_provisioner.exec_command :installed
+    end
+
+    map "--installed" => "installed"
+    
+    # --------------------------------------------
     # COMMAND->UPDATE ----------------------------
     # --------------------------------------------
     desc "update", "Updates the local package index from remote."
