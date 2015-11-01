@@ -59,6 +59,7 @@ module MPM
     # --------------------------------------------
     desc "installed", "Searches installed packages."
     def installed()
+      # dpkg --list | \grep -E "[a-z][a-z] *apt *[0-9]"]
       #::MPM.pm_provisioner.exec_command :installed
     end
 
@@ -83,6 +84,11 @@ module MPM
     end
 
     map "--info" => "info"
+   
+    # TODO:
+    # --------------------------------------------
+    # * mpm installed details PACKAGE (Gets details on an installed package)
+    # * mpm installed search PACKAGE
     
     # --------------------------------------------
     # COMMAND->VERSION ---------------------------
