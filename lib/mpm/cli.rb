@@ -59,7 +59,11 @@ module MPM
     # --------------------------------------------
     desc "installed", "Searches installed packages."
     def installed()
-      # dpkg --list | \grep -E "[a-z][a-z] *apt *[0-9]"]
+      # Use this:
+      #
+      # dpkg-query --list cowsay
+      # dpkg-query --list cow*
+      #
       #::MPM.pm_provisioner.exec_command :installed
     end
 
