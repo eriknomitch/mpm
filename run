@@ -1,1 +1,1 @@
-bundle install && rake install && alert && clear
+bundle install && rake install && ds play-mp3 ~/.audio/voice/Installed.mp3 && clear
