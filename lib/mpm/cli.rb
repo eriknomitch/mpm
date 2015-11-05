@@ -62,26 +62,6 @@ module MPM
     map "--list" => "list"
     
     # --------------------------------------------
-    # COMMAND->INSTALLED -------------------------
-    # --------------------------------------------
-    desc "installed", "Searches installed packages."
-    def installed(subcommand=nil)
-
-      # Use this:
-      # http://www.cyberciti.biz/faq/find-out-if-package-is-installed-in-linux/
-      #
-      # dpkg-query --list cowsay
-      # dpkg-query --list cow*
-      #
-      #::MPM.pm_provisioner.exec_command :installed
-      
-      puts subcommand
-    
-    end
-
-    map "--installed" => "installed"
-    
-    # --------------------------------------------
     # COMMAND->UPDATE ----------------------------
     # --------------------------------------------
     desc "update", "Updates the local package index from remote."
