@@ -104,8 +104,7 @@ module MPM
     # --------------------------------------------
     desc "version", "Displays the current version of notify-push"
     def version()
-      puts "FIX"
-      #puts ::MPM::VERSION
+      puts ::MPM::VERSION
     end
 
     map "--version" => "version"
