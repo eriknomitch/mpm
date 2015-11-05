@@ -34,6 +34,7 @@ module MPM
     # COMMAND->INSTALL ---------------------------
     # --------------------------------------------
     # TODO: $ mpm install cask/hazel
+    # TODO: $ mpm install gem/git-up
     desc "install PACKAGE", "Installs one or more packages."
     def install(*packages)
       ::MPM.pm_provisioner.exec_command :install, *packages
