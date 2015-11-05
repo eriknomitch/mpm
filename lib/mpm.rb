@@ -93,7 +93,7 @@ module MPM
     # --------------------------------------------
     # DSL ----------------------------------------
     # --------------------------------------------
-    [:install, :uninstall, :search, :list, :update, :info].each do |name|
+    [:install, :uninstall, :search, :search_installed, :list, :update, :info].each do |name|
       define_method name do |&definition|
         self.definitions_commands.add({
           method_name: name,
@@ -120,8 +120,11 @@ module MPM
       executable = ::MPM.pm_provisioner.executable
       
       # TEMPORARY: FIX:
-      executable = "apt-cache" if executable == "apt-get" and [:search, :info].member? command_name.to_sym
-      executable = "dpkg" if executable == "apt-get" and command_name.to_sym == :list
+      if executable == "apt-get"
+        executable = "apt-cache" if [:search, :info].member? command_name.to_sym
+        executable = "dpkg" if command_name.to_sym == :list
+        executable = "dpkg-query" if command.name.to_sym == :search_installed
+      end
 
       # Execute the command from the executable and the definition.
       command = [executable].concat(command[:definition].call(*arguments))
@@ -177,6 +180,11 @@ module MPM
       #executable "apt-cache" 
       ["search", package]
     end
+    
+    search_installed do |package|
+      ["--list", package]
+    end
+
 
     list do 
       #executable "dpkg"
@@ -207,6 +215,11 @@ module MPM
 
     search do |package|
       ["search", package]
+    end
+
+    search_installed do |package|
+      #executable "apt-cache" 
+      ["search", package, "|", "grep", "-i", package]
     end
 
     list do

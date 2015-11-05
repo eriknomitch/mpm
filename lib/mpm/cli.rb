@@ -23,6 +23,13 @@ module MPM
 
     map "--search" => "search"
     
+    desc "search-installed PACKAGE", "Searches for a package in the list of installed packages."
+    def search_installed(package)
+      ::MPM.pm_provisioner.exec_command :search_installed, package
+    end
+
+    map "--search-installed" => "search-installed"
+    
     # --------------------------------------------
     # COMMAND->INSTALL ---------------------------
     # --------------------------------------------
