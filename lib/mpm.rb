@@ -123,7 +123,7 @@ module MPM
       if executable == "apt-get"
         executable = "apt-cache" if [:search, :info].member? command_name.to_sym
         executable = "dpkg" if command_name.to_sym == :list
-        executable = "dpkg-query" if command.name.to_sym == :search_installed
+        executable = "dpkg-query" if command_name.to_sym == :search_installed
       end
 
       # Execute the command from the executable and the definition.
