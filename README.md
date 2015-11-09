@@ -4,7 +4,9 @@
 
 The concept of `mpm` is to create a (meta) package manager syntax/wrapper for the numerous package managers that exist to simplify administration of them.
 
+<!---
 **_Disclaimer_: This is in early development and is experimental.**
+-->
 
 ## Usage
 
