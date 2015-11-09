@@ -40,7 +40,7 @@ $ mpm update
 * [Homebrew](http://brew.sh/) (i.e., `brew`)
 
 ### Others
-* Suggestions? Open a GitHub issue tagged as a "Feature Request".
+* Suggestions? Open a GitHub issue tagged as a *Feature Request*.
 
 ## Installation
 
