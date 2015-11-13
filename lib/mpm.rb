@@ -67,6 +67,19 @@ module MPM
   class PMProvisioner
 
     # --------------------------------------------
+    # CONSTANTS ----------------------------------
+    # --------------------------------------------
+    DEFINITION_DSL_METHODS = %i(
+      install
+      uninstall
+      search
+      search_installed
+      list
+      update
+      info
+    )
+
+    # --------------------------------------------
     # ATTRIBUTES ---------------------------------
     # --------------------------------------------
     attr_accessor *%i(
@@ -93,7 +106,7 @@ module MPM
     # --------------------------------------------
     # DSL ----------------------------------------
     # --------------------------------------------
-    [:install, :uninstall, :search, :search_installed, :list, :update, :info].each do |name|
+    DEFINITION_DSL_METHODS.each do |name|
       define_method name do |&definition|
         self.definitions_commands.add({
           method_name: name,
@@ -156,101 +169,17 @@ module MPM
   end
 
   # ----------------------------------------------
-  # DEFINE->PMProvisioners -----------------------
-  # ----------------------------------------------
-  # FIX: Put these in ./pm_provisioners
-  
-  # ----------------------------------------------
-  # DEFINE->PM-PROVISIONER->APT ------------------
-  # ----------------------------------------------
-  # FIX: It's not really apt-get since search is apt-cache
-  PMProvisioner.define "apt-get", :linux do
-    install do |*packages|
-      #sudo true
-      ["install", *packages]
-    end
-
-    uninstall do |*packages|
-      #sudo true
-      # FIX: What about --purge?
-      ["remove", *packages]
-    end
-    
-    search do |package|
-      #executable "apt-cache" 
-      ["search", package]
-    end
-    
-    search_installed do |package|
-
-      #executable "dpkg-query"
-
-      # http://www.cyberciti.biz/faq/find-out-if-package-is-installed-in-linux/
-      #
-      # dpkg-query --list cowsay
-      # dpkg-query --list cow*
-      #
-      #::MPM.pm_provisioner.exec_command :installed
-      ["--list", package]
-    end
-
-
-    list do 
-      #executable "dpkg"
-      ["-l"]
-    end
-    
-    update do
-      ["update"]
-    end
-    
-    info do |package|
-      #executable cpt-cache
-      ["show", package]
-    end
-  end
-
-  # ----------------------------------------------
-  # DEFINE->PM-PROVISIONER->BREW -----------------
-  # ----------------------------------------------
-  PMProvisioner.define "brew", :osx do
-    install do |*packages|
-      ["install", *packages]
-    end
-    
-    uninstall do |*packages|
-      ["uninstall", *packages]
-    end
-
-    search do |package|
-      ["search", package]
-    end
-
-    search_installed do |package|
-      #executable "apt-cache" 
-      ["search", package, "|", "grep", "-i", package]
-    end
-
-    list do
-      ["list"]
-    end
-
-    update do
-      ["update"]
-    end
-    
-    info do |package|
-      ["info", package]
-    end
-  end
-
-  # ----------------------------------------------
   # MAIN -----------------------------------------
   # ----------------------------------------------
 
+  # Load the PMProvisioner definitions from their own files.
+  Dir.glob(File.expand_path(File.join(File.dirname(__FILE__), "pm_provisioners", "*.rb"))).each do |file|
+    instance_eval File.read(file)
+  end
+
   # Find and set the main PMProvisioner that this machine will use.
   self.pm_provisioner = ::MPM::PMProvisioner.get()
-
+  
 end
 
 # ------------------------------------------------
@@ -258,4 +187,4 @@ end
 # ------------------------------------------------
 require "mpm/cli"
 
-MPM::CLI.start(ARGV)
+MPM::CLI.start ARGV
