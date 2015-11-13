@@ -65,6 +65,16 @@ module MPM
   # CLASS->PMProvisioner -------------------------
   # ----------------------------------------------
   class PMProvisioner
+    
+    DEFINITION_DSL_METHODS = %i(
+      install
+      uninstall
+      search
+      search_installed
+      list
+      update
+      info
+    )
 
     # --------------------------------------------
     # ATTRIBUTES ---------------------------------
@@ -93,7 +103,7 @@ module MPM
     # --------------------------------------------
     # DSL ----------------------------------------
     # --------------------------------------------
-    [:install, :uninstall, :search, :search_installed, :list, :update, :info].each do |name|
+    DEFINITION_DSL_METHODS.each do |name|
       define_method name do |&definition|
         self.definitions_commands.add({
           method_name: name,
