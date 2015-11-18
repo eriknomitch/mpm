@@ -2,7 +2,7 @@
 # DEFINE->PM-PROVISIONER->APT ==================
 # ==============================================
 # FIX: It's not really apt-get since search is apt-cache... It's just "apt".
-PMProvisioner.define "apt-get", :linux do
+PM::Provisioner.define "apt-get", :linux do
   install do |*packages|
     #sudo true
     ["install", *packages]

@@ -1,7 +1,7 @@
 # ----------------------------------------------
 # DEFINE->PM-PROVISIONER->BREW -----------------
 # ----------------------------------------------
-PMProvisioner.define "brew", :osx do
+PM::Provisioner.define "brew", :osx do
   install do |*packages|
     ["install", *packages]
   end
@@ -35,9 +35,10 @@ PMProvisioner.define "brew", :osx do
   # ->EXTENSION->CASK ----------------------------
   # ----------------------------------------------
   extension "cask" do
+    install do |*packages|
+      ["cask", "install", *packages]
+    end
   end
 
 end
 
-
-binding.pry
