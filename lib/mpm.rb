@@ -87,6 +87,7 @@ module MPM
       os
       definition
       definitions_commands
+      extensions
     )
 
     # --------------------------------------------
@@ -98,6 +99,7 @@ module MPM
       self.definition = definition
       
       self.definitions_commands = Set.new
+      self.extensions = Set.new
 
       # Evaluate the block/DSL
       self.instance_eval &self.definition
