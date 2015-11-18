@@ -31,10 +31,13 @@ PMProvisioner.define "brew", :osx do
     ["info", package]
   end
 
-  #extension "cask" do
-  #end
+  # ----------------------------------------------
+  # ->EXTENSION->CASK ----------------------------
+  # ----------------------------------------------
+  extension "cask" do
+  end
 
 end
 
 
-
+binding.pry

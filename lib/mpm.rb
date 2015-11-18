@@ -116,6 +116,11 @@ module MPM
         })
       end
     end
+
+    def extension(name, &definition)
+      new_extension = ::MPM::PM::Extension.new name, &definition
+      self.extensions.add new_extension
+    end
     
     # --------------------------------------------
     # COMMAND->RETREIVAL -------------------------
@@ -170,32 +175,13 @@ module MPM
     
   end
 
-  module PM
-
-    # --------------------------------------------
-    # CLASS->EXTENSION ---------------------------
-    # --------------------------------------------
-    class Extension
-
-      # ------------------------------------------
-      # ATTRIBUTES -------------------------------
-      # ------------------------------------------
-      attr_accessor *%i(
-        name
-      )
-
-      # ------------------------------------------
-      # INITIALIZE -------------------------------
-      # ------------------------------------------
-      def initialize(name, &definition)
-        self.name = name
-      end
-    end
-  end
-
   # ----------------------------------------------
   # MAIN -----------------------------------------
   # ----------------------------------------------
+ 
+  Dir.glob(File.expand_path(File.join(File.dirname(__FILE__), "mpm/pm/*.rb"))).each do |file|
+    load file
+  end
 
   # Load the PMProvisioner definitions from their own files.
   Dir.glob(File.expand_path(File.join(File.dirname(__FILE__), "pm_provisioners", "*.rb"))).each do |file|
@@ -206,8 +192,6 @@ module MPM
   self.pm_provisioner = ::MPM::PMProvisioner.get()
   
 end
-
-binding.pry
 
 # ------------------------------------------------
 # REQUIRE->POST ----------------------------------
