@@ -86,6 +86,8 @@ module MPM
     # --------------------------------------------
     # * mpm installed details PACKAGE (Gets details on an installed package)
     # * mpm installed search PACKAGE
+    #
+    # * mpm upgrade cowsay # Ability to upgrade single packege.
     
     # --------------------------------------------
     # COMMAND->VERSION ---------------------------
