@@ -88,6 +88,8 @@ module MPM
     # * mpm installed search PACKAGE
     #
     # * mpm upgrade cowsay # Ability to upgrade single packege.
+    #
+    # * How to handle 'apt-get autoremove'? mpm clean? mpm cleanup? mpm system-cleanup?
     
     # --------------------------------------------
     # COMMAND->VERSION ---------------------------
