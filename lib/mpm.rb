@@ -19,6 +19,17 @@ require "os-name"
 # FIX: Development only
 require "pry" if Gem::Specification::find_all_by_name("pry").any?
 
+# http://headynation.com/opposite-of-chomp-in-ruby/
+class String
+  def remove_from_beginning(string_to_remove)
+    len = string_to_remove.size
+    if self[0..(len-1)] == string_to_remove
+      return self[len..-1]
+    end
+    self
+  end
+end
+
 # ------------------------------------------------
 # MODULE->MPM ------------------------------------
 # ------------------------------------------------
