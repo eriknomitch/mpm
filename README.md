@@ -19,8 +19,13 @@ $ mpm search <query>
 #  * If you were on Debian, this would execute: apt-cache search <query>
 #  * If you were on OS X, this would execute:   brew search <query>
 
-# Installing
+# Installing (base package manager)
 $ mpm install <package name(s)...>
+
+# Installing (exterior/additional package managers)
+$ mpm /cask install PACKAGE [PACKAGE...]
+$ mpm /gem  install GEM [GEM...]
+$ mpm /npm  install PACKAGE [PACKAGE...]
 
 # Uninstalling
 $ mpm uninstall <package name(s)...>

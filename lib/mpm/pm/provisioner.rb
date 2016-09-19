@@ -78,7 +78,7 @@ module MPM
         command = find_command command_name
 
         executable = ::MPM.pm_provisioner.executable
-        
+
         # TEMPORARY: FIX:
         if executable == "apt-get"
           executable = "apt-cache" if [:search, :info].member? command_name.to_sym
@@ -91,8 +91,12 @@ module MPM
 
         # TEMPORARY: FIX:
         command.unshift("sudo") if executable == "apt-get"
+
+        final_command = command.join(" ")
+
+        puts "executing: #{final_command}"
         
-        system command.join(" ")
+        system final_command
       end
       
       # ------------------------------------------

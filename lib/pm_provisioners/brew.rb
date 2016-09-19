@@ -42,3 +42,10 @@ PM::Provisioner.define "brew", :osx do
 
 end
 
+puts "brew"
+class CLI < Thor
+  desc "foo", "Foo"
+  def foo()
+    puts "ok"
+  end
+end
