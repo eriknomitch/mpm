@@ -64,6 +64,7 @@ GEM
     rake (11.2.2)
     rdoc (3.12.2)
       json (~> 1.4)
+    recursive-open-struct (1.0.1)
     semver (1.0.1)
     shoulda (3.5.0)
       shoulda-context (~> 1.0, >= 1.0.1)
@@ -94,6 +95,7 @@ DEPENDENCIES
   os-name (~> 0.0)
   pry
   rdoc (~> 3.12)
+  recursive-open-struct
   shoulda (~> 3.5)
   simplecov (~> 0)
   thor (~> 0.19)
