@@ -78,7 +78,7 @@ module MPM
       when :linux
         # FIX: Detect distro...
         "apt-get"
-      when :osx
+      when :osx, :macos
         # FIX: Ensure brew, etc.
         "brew"
       end
