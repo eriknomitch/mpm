@@ -1,6 +1,10 @@
 # ================================================
 # MPM ============================================
 # ================================================
+
+# ------------------------------------------------
+# REQUIRE->PRE -----------------------------------
+# ------------------------------------------------
 require "json"
 require "shellwords"
 require "yaml"
@@ -19,6 +23,9 @@ require "os-name"
 # FIX: Development only
 require "pry" if Gem::Specification::find_all_by_name("pry").any?
 
+# ------------------------------------------------
+# ->CLASS->STRING --------------------------------
+# ------------------------------------------------
 # http://headynation.com/opposite-of-chomp-in-ruby/
 class String
   def remove_from_beginning(string_to_remove)
@@ -70,22 +77,47 @@ module MPM
         "brew"
       end
     end
+
+    # --------------------------------------------
+    # FILE-LOADING -------------------------------
+    # --------------------------------------------
+    def self.glob_in_pwd(*path_suffixes)
+      Dir.glob(File.expand_path(File.join(File.dirname(__FILE__), **path_suffixes)))
+    end
+
+    def self.load_from_glob_in_pwd(*path_suffixes)
+      glob_in_pwd(*path_suffixes).each do |file|
+        load file
+      end
+    end
+
+    def self.instance_eval_from_glob_in_pwd(instance, *path_suffixes)
+      glob_in_pwd(*path_suffixes).each do |file|
+        instance.instance_eval File.read(file)
+      end
+    end
+
   end
   
   # ----------------------------------------------
   # MAIN -----------------------------------------
   # ----------------------------------------------
+
+  # Load additional files
+  # ----------------------------------------------
+  # Load the base modules/classes for Provisioner and Extension
+  Utility.load_from_glob_in_pwd "mpm/pm/*.rb"
+
+  # Load the Provisioners definitions from their own files.
+  Utility.instance_eval_from_glob_in_pwd self, "pm_provisioners/*.rb"
  
-  Dir.glob(File.expand_path(File.join(File.dirname(__FILE__), "mpm/pm/*.rb"))).each do |file|
-    load file
-  end
+  # Load the Provisioners extensions (after their base Provisioners
+  # have been loaded)
+  Utility.load_from_glob_in_pwd "pm_provisioners/*/**.rb"
 
-  # Load the PM::Provisioner definitions from their own files.
-  Dir.glob(File.expand_path(File.join(File.dirname(__FILE__), "pm_provisioners", "*.rb"))).each do |file|
-    instance_eval File.read(file)
-  end
-
-  # Find and set the main PM::Provisioner that this machine will use.
+  # Set main Provisioner
+  # ----------------------------------------------
+  # Find and set the main Provisioners that this machine will use.
   self.pm_provisioner = ::MPM::PM::Provisioner.get()
   
 end
@@ -95,4 +127,7 @@ end
 # ------------------------------------------------
 require "mpm/cli"
 
+# ================================================
+# MAIN ===========================================
+# ================================================
 MPM::CLI.start ARGV

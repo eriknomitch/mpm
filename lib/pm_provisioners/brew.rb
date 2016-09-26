@@ -31,20 +31,10 @@ PM::Provisioner.define "brew", :osx do
     ["info", package]
   end
 
-  # ----------------------------------------------
-  # ->EXTENSION->CASK ----------------------------
-  # ----------------------------------------------
-  extension "cask" do
-    install do |*packages|
-      ["cask", "install", *packages]
-    end
-  end
-
 end
 
-class CLI < Thor
-  desc "foo", "Foo"
-  def foo()
-    puts "ok"
-  end
+Dir.glob(File.expand_path(File.join(File.dirname(__FILE__), "lib/pm_provisioners/brew", "*.rb"))).each do |file|
+  #load file
 end
+
+
