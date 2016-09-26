@@ -2,6 +2,12 @@
 # MPM ============================================
 # ================================================
 
+
+# ------------------------------------------------
+# TEMPORARY->CONFIG ------------------------------
+# ------------------------------------------------
+DEBUG_COMMAND_OUTPUT = false
+
 # ------------------------------------------------
 # REQUIRE->PRE -----------------------------------
 # ------------------------------------------------
@@ -82,7 +88,7 @@ module MPM
     # FILE-LOADING -------------------------------
     # --------------------------------------------
     def self.glob_in_pwd(*path_suffixes)
-      Dir.glob(File.expand_path(File.join(File.dirname(__FILE__), **path_suffixes)))
+      Dir.glob(File.expand_path(File.join(File.dirname(__FILE__), *path_suffixes)))
     end
 
     def self.load_from_glob_in_pwd(*path_suffixes)

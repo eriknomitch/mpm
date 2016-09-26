@@ -8,17 +8,6 @@ module MPM
   # ----------------------------------------------
   class CLI < Thor
 
-    COMMANDS = %i(
-      search
-      search-installed
-      install
-      uninstall
-      list
-      update
-      info
-      version
-    )
-
     # --------------------------------------------
     # CONFIGURATION ------------------------------
     # --------------------------------------------

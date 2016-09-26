@@ -94,7 +94,7 @@ module MPM
 
         final_command = command.join(" ")
 
-        puts "executing: #{final_command}"
+        puts "executing: #{final_command}" if DEBUG_COMMAND_OUTPUT
         
         system final_command
       end
