@@ -17,8 +17,8 @@ Jeweler::Tasks.new do |gem|
   gem.name = "mpm"
   gem.homepage = "http://github.com/eriknomitch/mpm"
   gem.license = "MIT"
-  gem.summary = %Q{A CLI wrapper to unify interaction with multiple package managers across various OSs/distributions.}
-  gem.description = %Q{A CLI wrapper to unify interaction with multiple package managers across various OSs/distributions.}
+  gem.summary = %Q{A meta package manager}
+  gem.description = %Q{A meta package manager to unify interaction with multiple package managers across various platforms.}
   gem.email = "erik@nomitch.com"
   gem.authors = ["Erik Nomitch"]
   gem.executables = ["mpm"]

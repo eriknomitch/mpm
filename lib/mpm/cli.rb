@@ -8,6 +8,17 @@ module MPM
   # ----------------------------------------------
   class CLI < Thor
 
+    COMMANDS = %i(
+      search
+      search-installed
+      install
+      uninstall
+      list
+      update
+      info
+      version
+    )
+
     # --------------------------------------------
     # CONFIGURATION ------------------------------
     # --------------------------------------------
@@ -103,5 +114,9 @@ module MPM
 
   end
 
+end
+
+trap "SIGINT" do
+  exit 130
 end
 
