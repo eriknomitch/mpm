@@ -10,7 +10,8 @@ gem "thor", "~> 0.19"
 gem "awesome_print", "~> 1.6"
 gem "os", "~> 0.9"
 gem "os-name", "~> 0.0"
-gem "recursive-open-struct", "~> 0.0"
+gem "recursive-open-struct", "~> 0"
+gem "colorize", "~> 0"
 
 # Add dependencies to develop your gem here.
 # Include everything needed to run rake, tests, features, etc.
