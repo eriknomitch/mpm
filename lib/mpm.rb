@@ -2,12 +2,6 @@
 # MPM ============================================
 # ================================================
 
-
-# ------------------------------------------------
-# TEMPORARY->CONFIG ------------------------------
-# ------------------------------------------------
-DEBUG_COMMAND_OUTPUT = false
-
 # ------------------------------------------------
 # REQUIRE->PRE -----------------------------------
 # ------------------------------------------------
@@ -23,8 +17,8 @@ require "active_support/core_ext/module"
 require "active_support/core_ext/object/blank"
 require "active_support/core_ext/object/try"
 require "active_support/inflector/inflections"
-#require "os"
 require "os-name"
+require "colorize"
 
 # FIX: Development only
 require "pry" if Gem::Specification::find_all_by_name("pry").any?
@@ -61,9 +55,14 @@ module MPM
   mattr_accessor *%i(
     pm_provisioners
     pm_provisioner
+    config
   )
 
   self.pm_provisioners = Set.new
+
+  self.config = {
+    output_translation: true
+  }
 
   # ----------------------------------------------
   # MODULE->UTILITY ------------------------------

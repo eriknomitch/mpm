@@ -94,7 +94,16 @@ module MPM
 
         final_command = command.join(" ")
 
-        puts "executing: #{final_command}" if DEBUG_COMMAND_OUTPUT
+        puts ""
+
+        puts [
+          "---->",
+          "[mpm]".colorize(:green),
+          ":".bold,
+          final_command.colorize(:light_black)
+        ].join(" ")
+
+        puts ""
         
         system final_command
       end
