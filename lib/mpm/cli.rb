@@ -65,12 +65,22 @@ module MPM
     # --------------------------------------------
     # COMMAND->UPDATE ----------------------------
     # --------------------------------------------
-    desc "update", "Updates the local package index from remote."
+    desc "update", "TODO"
     def update()
       ::MPM.pm_provisioner.exec_command :update
     end
 
     map "--update" => "update"
+    
+    # --------------------------------------------
+    # COMMAND->UPGRADE ---------------------------
+    # --------------------------------------------
+    desc "update", "Upgrades a package."
+    def upgrade()
+      ::MPM.pm_provisioner.exec_command :upgrade
+    end
+
+    map "--upgrade" => "upgrade"
     
     # --------------------------------------------
     # COMMAND->INFO ------------------------------
