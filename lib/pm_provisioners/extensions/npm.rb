@@ -16,7 +16,7 @@ module MPM
     end
   end
 
-  class CLI < NPM
+  class CLI < Thor
     desc "/npm COMMAND...ARGS", "Meta wrapper for 'npm'."
     subcommand "/npm", NPM
   end
