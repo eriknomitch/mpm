@@ -16,13 +16,14 @@ module MPM
     # --------------------------------------------
     # COMMAND->SEARCH ----------------------------
     # --------------------------------------------
-    desc "search PACKAGE", "Searches for a package in the list of available packages."
+    desc "search [--all|-a] PACKAGE", "Searches for a package in the list of available packages."
     def search(package)
       ::MPM.pm_provisioner.exec_command :search, package
     end
 
     map "--search" => "search"
     
+    # FIX: Change this to an argument of "list"
     desc "search-installed PACKAGE", "Searches for a package in the list of installed packages."
     def search_installed(package)
       ::MPM.pm_provisioner.exec_command :search_installed, package
@@ -100,6 +101,9 @@ module MPM
     # * mpm upgrade cowsay # Ability to upgrade single packege.
     #
     # * How to handle 'apt-get autoremove'? mpm clean? mpm cleanup? mpm system-cleanup?
+    #
+    # * Have the ability to pass multiple extensions to search `mpm / /gem mruby` for 
+    # the base package manager and /gem
     
     # --------------------------------------------
     # COMMAND->VERSION ---------------------------
