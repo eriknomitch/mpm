@@ -14,6 +14,11 @@ module MPM
     def list(*packages)
       system "gem list"
     end
+    
+    desc "search...", "search......"
+    def search(*packages)
+      system "gem search"
+    end
   end
 
   class CLI < Thor
