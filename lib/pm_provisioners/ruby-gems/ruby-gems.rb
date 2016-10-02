@@ -16,8 +16,13 @@ module MPM
     end
     
     desc "search...", "search......"
-    def search(*packages)
-      system "gem search"
+    def search(query)
+      system "gem search #{query}"
+    end
+    
+    desc "update...", "update......"
+    def update(*packages)
+      system "gem update #{packages.join(" ")}"
     end
   end
 
