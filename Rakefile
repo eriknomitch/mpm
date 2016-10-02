@@ -14,7 +14,7 @@ require 'rake'
 require 'jeweler'
 Jeweler::Tasks.new do |gem|
   # gem is a Gem::Specification... see http://guides.rubygems.org/specification-reference/ for more options
-  gem.name = "mpm"
+  gem.name = "meta-package-manager"
   gem.homepage = "http://github.com/eriknomitch/mpm"
   gem.license = "MIT"
   gem.summary = %Q{A meta package manager}
