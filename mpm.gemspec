@@ -37,6 +37,7 @@ Gem::Specification.new do |s|
     "lib/pm_provisioners/brew/cask.rb",
     "lib/pm_provisioners/extensions/npm.rb",
     "lib/pm_provisioners/ruby-gems/ruby-gems.rb",
+    "mpm.gemspec",
     "ofe.json",
     "run",
     "test/helper.rb",
