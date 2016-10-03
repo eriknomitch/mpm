@@ -19,8 +19,8 @@ module MPM
     end
     
     desc "search...", "search......"
-    def search(*packages)
-      system "sudo pip search"
+    def search(query)
+      system "pip search #{query}"
     end
   end
 
