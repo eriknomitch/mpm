@@ -1,21 +1,21 @@
 module MPM
   class Pip < Thor
 
-    # FIX: IMPORTANT: Dependency on sudo is very bad and it's not supposed to be the case.
+    # FIX: IMPORTANT: Dependency on sudo -H is great.
 
     desc "uninstall...", "uninstall......"
     def uninstall(*packages)
-      system "sudo pip uninstall #{packages.join(" ")}"
+      system "sudo -H pip uninstall #{packages.join(" ")}"
     end
 
     desc "install...", "install......"
     def install(*packages)
-      system "sudo pip install #{packages.join(" ")}"
+      system "sudo -H pip install #{packages.join(" ")}"
     end
     
     desc "list...", "list......"
     def list(*packages)
-      system "sudo pip list"
+      system "sudo -H pip list"
     end
     
     desc "search...", "search......"
