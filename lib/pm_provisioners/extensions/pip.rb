@@ -22,6 +22,11 @@ module MPM
     def search(query)
       system "pip search #{query}"
     end
+    
+    desc "upgrade...", "upgrade......"
+    def upgrade()
+      system "sudo -H pip install --upgrade pip"
+    end
   end
 
   class CLI < Thor
