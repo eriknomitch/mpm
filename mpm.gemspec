@@ -11,7 +11,7 @@ Gem::Specification.new do |s|
   s.required_rubygems_version = Gem::Requirement.new(">= 0".freeze) if s.respond_to? :required_rubygems_version=
   s.require_paths = ["lib".freeze]
   s.authors = ["Erik Nomitch".freeze]
-  s.date = "2016-10-04"
+  s.date = "2016-10-05"
   s.description = "A meta package manager to unify interaction with multiple package managers across various platforms.".freeze
   s.email = "erik@nomitch.com".freeze
   s.executables = ["mpm".freeze]
