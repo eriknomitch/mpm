@@ -29,7 +29,7 @@ PM::Provisioner.define "apt-get", :linux do
     # dpkg-query --list cow*
     #
     #::MPM.pm_provisioner.exec_command :installed
-    ["--list", package]
+    ["--list", "*#{package}*"]
   end
 
 
