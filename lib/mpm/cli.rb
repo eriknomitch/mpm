@@ -16,6 +16,7 @@ module MPM
     # --------------------------------------------
     # COMMAND->SEARCH ----------------------------
     # --------------------------------------------
+    # IDEA: Have a "chained grep" option for arguments after the package
     desc "search [--all|-a] PACKAGE", "Searches for a package in the list of available packages."
     def search(package)
       ::MPM.pm_provisioner.exec_command :search, package
