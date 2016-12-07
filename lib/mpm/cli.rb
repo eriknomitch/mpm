@@ -47,6 +47,7 @@ module MPM
     # --------------------------------------------
     # COMMAND->UNINSTALL -------------------------
     # --------------------------------------------
+    # TODO: Have 'remove' prompt "did you mean uninstall?" and run this
     desc "uninstall PACKAGE", "Uninstalls one or more packages."
     def uninstall(*packages)
       ::MPM.pm_provisioner.exec_command :uninstall, *packages
